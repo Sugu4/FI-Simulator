@@ -64,11 +64,10 @@ function evaluate() {
         </div>
         <div class="your-answer">
           <strong>Deine Antwort:</strong><br>
-          ${
-            userAnswer
-              ? escapeHtml(userAnswer).replace(/\n/g, "<br>")
-              : "<em>Keine Antwort gegeben.</em>"
-          }
+          ${userAnswer
+        ? escapeHtml(userAnswer).replace(/\n/g, "<br>")
+        : "<em>Keine Antwort gegeben.</em>"
+      }
         </div>
         <div class="solution">
           <strong>Mögliche Lösung:</strong><br>
@@ -82,18 +81,19 @@ function evaluate() {
     totalPoints > 0 ? Math.round((reachedPoints / totalPoints) * 100) : 0;
 
   resultMain.innerHTML = `
-    <h1>Auswertung</h1>
-    <p>Erreichte Punkte: <strong>${reachedPoints}</strong> von <strong>${totalPoints}</strong>
-       (${totalPercent} %)</p>
-    <p>Verbleibende Zeit: ${formatMinutes(loadTime())}</p>
+  <h1>Auswertung</h1>
+  <p>Erreichte Punkte: <strong>${reachedPoints}</strong> von <strong>${totalPoints}</strong>
+     (${totalPercent} %)</p>
+  <p>Verbleibende Zeit: ${formatMinutes(loadTime())}</p>
 
-    <div style="margin: 1.5rem 0;">
-      <button onclick="restartExam()">Neuer Versuch</button>
-      <button onclick="goHome()" style="margin-left: 0.5rem;">Zur Startseite</button>
-    </div>
+  <div class="result-actions">
+    <button class="result-btn" onclick="restartExam()">Neuer Versuch</button>
+    <button class="result-btn" onclick="goHome()">Zur Startseite</button>
+  </div>
 
-    ${html}
-  `;
+  ${html}
+`;
+
 }
 
 function restartExam() {

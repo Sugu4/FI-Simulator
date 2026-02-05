@@ -20,6 +20,21 @@ main {
   border-left-color: var(--warn);
 }
 
+.result-actions {
+  margin: 1.5rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.result-btn {
+  width: 80%;
+  max-width: 280px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+}
+
 .label {
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -47,5 +62,12 @@ main {
 
   .result-block {
     padding: 1.5rem;
+  }
+
+   .result-btn {
+    width: 90%;
+    max-width: 260px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
   }
 }
