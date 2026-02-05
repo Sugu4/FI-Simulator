@@ -1,0 +1,51 @@
+main {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+}
+
+.result-block {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid var(--accent-soft);
+}
+
+.result-block.bad {
+  border-left-color: var(--danger);
+}
+
+.result-block.mid {
+  border-left-color: var(--warn);
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.your-answer {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.solution {
+  color: var(--muted);
+}
+
+/* =========================
+   Mobile Optimierung
+   ========================= */
+   
+@media (max-width: 768px) {
+
+  main {
+    padding: 1rem;
+    margin: 1.5rem auto;
+  }
+
+  .result-block {
+    padding: 1.5rem;
+  }
+}
