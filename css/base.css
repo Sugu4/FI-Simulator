@@ -13,6 +13,14 @@
   box-sizing: border-box;
 }
 
+.hero-clock {
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
