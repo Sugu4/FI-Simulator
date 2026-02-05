@@ -1,4 +1,4 @@
-# AP1-Prüfungssimulator (FIAE)
+# AP1-Prüfungssimulator (FI)
 
 Ein **Prüfungssimulator** für die Abschlussprüfung im Ausbildungsberuf *Fachinformatiker/in*.  
 Ziel ist es, den Aufbau und Stil der echten IHK-Prüfung nachzuempfinden und offene Aufgaben realistisch zu üben.
