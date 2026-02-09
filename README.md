@@ -3,6 +3,8 @@
 Ein **Prüfungssimulator** für die Abschlussprüfung im Ausbildungsberuf *Fachinformatiker/in*.  
 Ziel ist es, den Aufbau und Stil der echten IHK-Prüfung nachzuempfinden und offene Aufgaben realistisch zu üben.
 
+👉https://sugu4.github.io/FI-Simulator/
+
 > Hinweis: Dieses Projekt steht in **keiner Verbindung zur IHK** und ist kein offizielles Prüfungsangebot. Es dient ausschließlich zu Übungszwecken.
 
 ## Features
