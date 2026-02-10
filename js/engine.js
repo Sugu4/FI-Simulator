@@ -5,7 +5,6 @@ function render() {
   const t = EXAM.tasks[index];
   const saved = loadAnswer(t.id) || "";
 
-  // NEU: Diagramm/SVG-HTML vorbereiten
   const diagramHtml = t.diagram
     ? `<img src="${t.diagram}" alt="Diagramm zur Aufgabe" style="max-width:100%;height:auto;">`
     : (t.svg ? t.svg : "");
@@ -52,7 +51,10 @@ function prev() { save(); index--; render(); }
 
 function finish() {
   save();
-  window.location.href = "result.html";
+
+  const params = new URLSearchParams(window.location.search);
+  const examName = params.get("exam") || "ap1_sample";
+  window.location.href = "result.html?exam=" + encodeURIComponent(examName);
 }
 
 render();

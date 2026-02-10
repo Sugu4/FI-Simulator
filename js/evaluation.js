@@ -10,7 +10,50 @@ function formatMinutes(seconds) {
 
 function scoreTask(task, answer) {
   const text = (answer || "").toLowerCase().trim();
-  const keywords = task.keywords || [];
+
+  // 1) Spezialfall: Reihenfolge-Aufgabe mit correctOrder
+  if (task.type === "uml" && Array.isArray(task.correctOrder)) {
+    // Nutzer trennt die Phasen z.B. mit Komma, Strichpunkt oder Zeilenumbruch
+    const userParts = text
+      .split(/[,\n;]+/)
+      .map(p => p.trim().toLowerCase())
+      .filter(p => p);
+
+    const correct = task.correctOrder.map(p => p.toLowerCase());
+
+    let hits = 0;
+    // Positionstreffer zählen: was an Stelle i steht, wird mit correct[i] verglichen
+    for (let i = 0; i < correct.length && i < userParts.length; i++) {
+      if (userParts[i].includes(correct[i])) {
+        hits++;
+      }
+    }
+
+    const ratio = hits / correct.length;
+
+    if (ratio >= 0.8) return task.points;                    // fast alles richtig
+    if (ratio >= 0.5) return Math.round(task.points * 2 / 3); // ca. die Hälfte richtig
+    if (ratio >= 0.2) return Math.round(task.points / 3);     // wenig richtig
+    return 0;
+  }
+
+  // 2) Spezialfall: „Nenne zwei von mehreren möglichen“ (z.B. A3a)
+  if (task.type === "two-of-many") {
+    const keywords = (task.keywords || []).map(k => k.toLowerCase());
+    if (!text || !keywords.length || !task.points) return 0;
+
+    let hits = 0;
+    keywords.forEach(kw => {
+      if (text.includes(kw)) hits++;
+    });
+
+    if (hits >= 2) return task.points;                 // mind. 2 passende Gesetze → volle Punkte
+    if (hits === 1) return Math.round(task.points / 2); // nur 1 → halbe Punkte
+    return 0;
+  }
+
+  // 3) Standardfall: Keyword-Logik für alle anderen Aufgaben
+  const keywords = (task.keywords || []).map(k => k.toLowerCase());
 
   if (!text || !keywords.length || !task.points) {
     return 0;
@@ -18,13 +61,25 @@ function scoreTask(task, answer) {
 
   let hits = 0;
   keywords.forEach(kw => {
-    if (text.includes(kw.toLowerCase())) {
+    if (text.includes(kw)) {
       hits++;
     }
   });
 
   const ratio = hits / keywords.length;
-  return Math.round(ratio * task.points);
+
+  if (hits === 0) {
+    return 0;
+  } else if (ratio >= 0.5) {
+    // ≥50% der Keywords → volle Punkte
+    return task.points;
+  } else if (ratio >= 0.3) {
+    // 30–59% → 2/3 der Punkte
+    return Math.round(task.points * 2 / 3);
+  } else {
+    // Weniger als 30% → 1/3 der Punkte
+    return Math.round(task.points / 3);
+  }
 }
 
 function classifyBlock(points, maxPoints) {

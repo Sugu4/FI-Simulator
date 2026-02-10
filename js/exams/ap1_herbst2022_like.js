@@ -21,10 +21,8 @@ const EXAM = {
         "ziele",
         "ressourcen",
         "zeitplan",
-        "risiken",
-        "koordination",
-        "Start",
-        "Ende"
+        "Risiko",
+        "koordination"
       ],
       solution:
         "Ein strukturiertes Projektvorgehen hilft, Ziele und Anforderungen klar zu definieren, Ressourcen und Zeitplan zu koordinieren sowie Risiken systematisch zu steuern."

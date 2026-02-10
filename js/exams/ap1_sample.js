@@ -332,16 +332,24 @@ const EXAM = {
     {
       id: "A3a",
       block: "3",
-      type: "text",
+      type: "two-of-many",
       operator: "Nennen Sie",
       context:
         "Bei der Nutzung eines Laptops als Telearbeitsplatz müssen Kundendaten geschützt werden.",
       question:
         "zwei in Deutschland relevante gesetzliche Grundlagen zum Datenschutz.",
       points: 2,
-      keywords: ["dsgvo", "bdsd", "bds g", "bundesdatenschutzgesetz", "eu-dsgvo"],
+      keywords: [
+        "dsgvo",
+        "bdsd",
+        "bds g",
+        "bundesdatenschutzgesetz",
+        "eu-dsgvo",
+        "ttdsg",
+        "telekommunikation telemedien datenschutz gesetz"
+      ],
       solution:
-        "Relevante Grundlagen sind insbesondere die Europäische Datenschutz-Grundverordnung (DSGVO) und das Bundesdatenschutzgesetz (BDSG)."
+        "Beispiele: DSGVO, Bundesdatenschutzgesetz (BDSG), TTDSG (Telekommunikation-Telemedien-Datenschutz-Gesetz)."
     },
 
     {
@@ -495,11 +503,11 @@ const EXAM = {
       type: "uml",
       operator: "Bringen Sie in die richtige Reihenfolge",
       context:
-        "Es liegt eine Liste von Projektvorgängen vor, die in eine sinnvolle Reihenfolge gebracht werden sollen.",
+        "Es liegt eine unsortierte Liste von Projektphasen vor. Alle Phasen sind vorhanden, aber noch nicht in der korrekten Reihenfolge.",
       question:
-        "indem Sie eine plausible Abfolge der angegebenen Projektphasen bilden.",
+        "Bringen Sie die genannten Projektphasen in eine sinnvolle Reihenfolge von der ersten bis zur letzten Phase.",
       points: 3,
-      keywords: [
+      correctOrder: [
         "anforderungsanalyse",
         "konzeptioneller entwurf",
         "logischer entwurf",
@@ -509,32 +517,42 @@ const EXAM = {
         "wartung"
       ],
       svg: `
-        <svg width="420" height="120" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="10" width="400" height="100" fill="#020617" stroke="#9ca3af"/>
-          <text x="210" y="30" fill="#e5e7eb" text-anchor="middle" font-size="13">
-            Projektphasen (Schema)
-          </text>
+      <svg width="360" height="220" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="340" height="200" fill="#020617" stroke="#9ca3af"/>
+        <text x="180" y="30" fill="#e5e7eb" text-anchor="middle" font-size="13">
+          Projektphasen (unsortiert)
+        </text>
 
-          <rect x="30" y="50" width="80" height="30" fill="none" stroke="#22c55e"/>
-          <text x="70" y="70" fill="#e5e7eb" text-anchor="middle" font-size="11">
-            Analyse
-          </text>
+        <!-- 1 -->
+        <rect x="30" y="50" width="300" height="22" fill="none" stroke="#22c55e"/>
+        <text x="40" y="66" fill="#e5e7eb" font-size="11">
+          Physischer Entwurf
+        </text>
 
-          <rect x="130" y="50" width="80" height="30" fill="none" stroke="#22c55e"/>
-          <text x="170" y="70" fill="#e5e7eb" text-anchor="middle" font-size="11">
-            Entwurf
-          </text>
+        <!-- 2 -->
+        <rect x="30" y="80" width="300" height="22" fill="none" stroke="#22c55e"/>
+        <text x="40" y="96" fill="#e5e7eb" font-size="11">
+          Implementierung, Tests, Wartung
+        </text>
 
-          <rect x="230" y="50" width="80" height="30" fill="none" stroke="#22c55e"/>
-          <text x="270" y="70" fill="#e5e7eb" text-anchor="middle" font-size="11">
-            Umsetzung
-          </text>
+        <!-- 3 -->
+        <rect x="30" y="110" width="300" height="22" fill="none" stroke="#22c55e"/>
+        <text x="40" y="126" fill="#e5e7eb" font-size="11">
+          Logischer Entwurf
+        </text>
 
-          <rect x="330" y="50" width="60" height="30" fill="none" stroke="#22c55e"/>
-          <text x="360" y="70" fill="#e5e7eb" text-anchor="middle" font-size="11">
-            Betrieb
-          </text>
-        </svg>
+        <!-- 4 -->
+        <rect x="30" y="140" width="300" height="22" fill="none" stroke="#22c55e"/>
+        <text x="40" y="156" fill="#e5e7eb" font-size="11">
+          Anforderungsanalyse
+        </text>
+
+        <!-- 5 -->
+        <rect x="30" y="170" width="300" height="22" fill="none" stroke="#22c55e"/>
+        <text x="40" y="186" fill="#e5e7eb" font-size="11">
+          Konzeptioneller Entwurf
+        </text>
+      </svg>
       `,
       solution:
         "Eine typische Reihenfolge ist: Anforderungsanalyse, konzeptioneller Entwurf, logischer Entwurf, physischer Entwurf und Implementierung, Test und Validierung, Übergabe in Anwendung und Wartung."
