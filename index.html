@@ -54,7 +54,10 @@
     <h1>Abschlussprüfung Teil 1</h1>
     <p>Bearbeitungszeit: <strong>90 Minuten</strong></p>
     <p>Es sind alle Aufgaben zu bearbeiten.</p>
-    <button onclick="start()">Prüfung starten</button>
+    <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:1rem;">
+      <button onclick="start('ap1_sample')">Prüfung: Beispiel (Service / Homeoffice)</button>
+      <button onclick="start('ap1_herbst2022_like')">Prüfung: Herbst 2022 (ähnlich)</button>
+    </div>
   </main>
 
   <section class="instructions">
@@ -83,9 +86,10 @@
   </footer>
 
   <script>
-    function start() {
+    function start(examName) {
       localStorage.clear();
-      window.location.href = "exam.html";
+      const name = examName || "ap1_sample";
+      window.location.href = "exam.html?exam=" + encodeURIComponent(name);
     }
   </script>
 </body>

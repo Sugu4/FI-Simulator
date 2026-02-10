@@ -99,11 +99,13 @@ function evaluate() {
 function restartExam() {
   localStorage.removeItem("ap1_answers");
   localStorage.removeItem("ap1_time");
-  window.location.href = "exam.html";
+  const params = new URLSearchParams(window.location.search);
+  const examName = params.get("exam") || "ap1_sample";
+
+  window.location.href = "exam.html?exam=" + encodeURIComponent(examName);
 }
 
 function goHome() {
-  // hier ggf. anpassen: Name deiner Startseite
   window.location.href = "index.html";
 }
 

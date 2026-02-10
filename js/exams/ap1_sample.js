@@ -3,7 +3,6 @@
 
 const EXAM = {
   duration: 90 * 60, // 90 Minuten
-
   tasks: [
     // ===== 1. Aufgabe – Serviceprozess / UML / Text (25 Punkte) =====
 
