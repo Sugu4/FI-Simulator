@@ -517,9 +517,9 @@ const EXAM = {
         "wartung"
       ],
       svg: `
-      <svg width="360" height="220" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="10" width="340" height="200" fill="#020617" stroke="#9ca3af"/>
-        <text x="180" y="30" fill="#e5e7eb" text-anchor="middle" font-size="13">
+      <svg width="360" height="260" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="360" height="360" fill="#020617" stroke="#9ca3af"/>
+        <text x="190" y="30" fill="#e5e7eb" text-anchor="middle" font-size="13">
           Projektphasen (unsortiert)
         </text>
 
@@ -532,7 +532,7 @@ const EXAM = {
         <!-- 2 -->
         <rect x="30" y="80" width="300" height="22" fill="none" stroke="#22c55e"/>
         <text x="40" y="96" fill="#e5e7eb" font-size="11">
-          Implementierung, Tests, Wartung
+          Implementierung
         </text>
 
         <!-- 3 -->
@@ -551,6 +551,18 @@ const EXAM = {
         <rect x="30" y="170" width="300" height="22" fill="none" stroke="#22c55e"/>
         <text x="40" y="186" fill="#e5e7eb" font-size="11">
           Konzeptioneller Entwurf
+        </text>
+
+        <!-- 6 -->
+        <rect x="30" y="200" width="300" height="22" fill="none" stroke="#22c55e"/>
+        <text x="40" y="216" fill="#e5e7eb" font-size="11">
+          Tests
+        </text>
+
+        <!-- 7 -->
+        <rect x="30" y="230" width="300" height="22" fill="none" stroke="#22c55e"/>
+        <text x="40" y="246" fill="#e5e7eb" font-size="11">
+          Wartung
         </text>
       </svg>
       `,
