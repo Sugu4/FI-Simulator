@@ -10,15 +10,16 @@ const EXAM = {
       id: "A1a",
       block: "1",
       type: "uml",
-      operator: "Ergänzen Sie",
+      operator: "Beschreiben Sie",
       context:
         "Ein Softwarehaus betreibt eine Hotline. Kunden melden Störungen, die von der IT-Abteilung erfasst und vom Serviceteam bearbeitet werden.",
       question:
-        "Betrachten Sie das Use-Case-Diagramm. Ergänzen Sie gedanklich die fehlenden Anwendungsfälle und Akteure.",
+        "kurz den Ablauf im Hotline-System aus Sicht von Kunde, IT-Abteilung und Serviceteam anhand des dargestellten Use-Case-Diagramms.",
       points: 6,
       keywords: [
         "kunde",
-        "störungsmeldung",
+        "störung melden",
+        "Störung",
         "it-abteilung",
         "serviceteam",
         "erfassen",
@@ -63,13 +64,13 @@ const EXAM = {
         </svg>
       `,
       solution:
-        "Der Kunde meldet Störungen (Use Case: Störung melden). Die IT-Abteilung erfasst die Störung und erstellt eine Arbeitsplanung, das Serviceteam bearbeitet den Auftrag und gibt eine Rückmeldung an den Kunden."
+        "Ein möglicher Ablauf: Der Kunde meldet eine Störung (Use Case „Störung melden“). Die IT-Abteilung erfasst die Störung und plant die Bearbeitung. Das Serviceteam bearbeitet den Auftrag und gibt abschließend eine Rückmeldung an den Kunden."
     },
 
     {
       id: "A1ba",
       block: "1",
-      type: "text",
+      type: "two-of-many",
       operator: "Beschreiben Sie",
       context:
         "Störungsmeldungen werden nur per E-Mail entgegengenommen und in einer Tabelle verwaltet. Die Arbeitsplanung erfolgt einmal pro Woche am Freitag.",
@@ -91,17 +92,18 @@ const EXAM = {
     {
       id: "A1bb",
       block: "1",
-      type: "text",
+      type: "two-of-many",
       operator: "Nennen Sie",
       context: "Die Servicequalität soll verbessert werden.",
       question: "zwei Maßnahmen, mit denen der Ablauf optimiert werden kann.",
-      points: 2,
+      points: 4,
       keywords: [
         "ticketsystem",
         "webformular",
         "priorisierung",
         "servicezeiten",
         "24/7",
+        "bereitschaftsdienst",
         "rückmeldung"
       ],
       solution:
@@ -118,7 +120,13 @@ const EXAM = {
       question:
         "drei Methoden, mit denen Sie den Bedarf der Kunden analysieren können.",
       points: 3,
-      keywords: ["befragung", "fragebogen", "interview", "workshop", "umfrage", "auswertung"],
+      keywords: [
+        "befragung",
+        "fragebogen",
+        "interview",
+        "workshop",
+        "umfrage"
+      ],
       solution:
         "Mögliche Methoden sind etwa Kundenbefragungen oder Online-Umfragen, Interviews mit ausgewählten Kunden sowie Workshops oder Auswertung bestehender Supportdaten."
     },
@@ -131,26 +139,22 @@ const EXAM = {
       context:
         "Ein Artikel beschreibt Risiken bei zu hohen oder zu niedrigen Servicepreisen.",
       question:
-        "je eine Gefahr bei zu hohen und bei zu niedrigen Servicepreisen und die vier zentralen Aspekte zur Preisbestimmung.",
-      points: 10,
+        "je eine Gefahr bei zu hohen und bei zu niedrigen Servicepreisen.",
+      points: 8,
       keywords: [
         "zu hoch",
         "kunden",
         "ablehnen",
         "kein verkauf",
         "zu niedrig",
-        "kosten",
         "verlust",
-        "kosten berechnen",
-        "kunden kennen",
-        "markt",
-        "preismodell"
+        "kosten nicht gedeckt"
       ],
       solution:
-        "Bei zu hohen Preisen besteht die Gefahr, dass Kunden den Service ablehnen und keine Aufträge zustande kommen. Bei zu niedrigen Preisen werden die eigenen Kosten nicht gedeckt. Zur Preisbestimmung sollten Kosten berechnet, Kundenbedürfnisse analysiert, der Markt betrachtet und ein geeignetes Preismodell gewählt werden."
+        "Bei zu hohen Preisen lehnen Kunden den Service ab, es kommt zu keinem Verkauf. Bei zu niedrigen Preisen werden die eigenen Kosten nicht gedeckt und es droht Verlust."
     },
 
-    // Summe 1. Aufgabe: 6 + 4 + 2 + 3 + 10 = 25
+    // Summe 1. Aufgabe: 6 + 4 + 4 + 3 + 8 = 25
 
     // ===== 2. Aufgabe – Telearbeit / Ergonomie / Kostenrechnung (25 Punkte) =====
 
