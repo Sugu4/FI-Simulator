@@ -52,7 +52,41 @@ function scoreTask(task, answer) {
     return 0;
   }
 
-  // 3) Standardfall: Keyword-Logik für alle anderen Aufgaben
+  // 3) Spezialfall: Rechenaufgabe mit Ergebnis + Rechenweg
+  if (task.type === "rechnung" && typeof task.expectedResult === "number") {
+    const maxPoints = task.points || 0;
+
+    // Ergebnis aus Text holen (erste Zahl mit Komma oder Punkt)
+    const match = text.match(/(\d+[.,]\d{1,2})/);
+    let resultPoints = 0;
+
+    if (match) {
+      const userNumber = parseFloat(match[1].replace(",", "."));
+      const diff = Math.abs(userNumber - task.expectedResult);
+
+      if (diff < 0.01) {
+        // korrektes Ergebnis → 60 % der Punkte
+        resultPoints = Math.round(maxPoints * 0.6);
+      } else if (diff < 0.05) {
+        // knapp daneben → 30 % der Punkte
+        resultPoints = Math.round(maxPoints * 0.3);
+      }
+    }
+
+    // Rechenweg über Keywords bewerten (max. 40 %)
+    const kw = (task.keywords || []).map(k => k.toLowerCase());
+    let hits = 0;
+    kw.forEach(kwd => {
+      if (text.includes(kwd)) hits++;
+    });
+    const ratio = kw.length ? hits / kw.length : 0;
+    const pathPoints = Math.round(maxPoints * 0.4 * ratio);
+
+    return Math.min(maxPoints, resultPoints + pathPoints);
+  }
+
+
+  // 4) Standardfall: Keyword-Logik für alle anderen Aufgaben
   const keywords = (task.keywords || []).map(k => k.toLowerCase());
 
   if (!text || !keywords.length || !task.points) {

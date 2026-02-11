@@ -161,7 +161,7 @@ const EXAM = {
     {
       id: "A2a",
       block: "2",
-      type: "text",
+      type: "two-of-many",
       operator: "Nennen und begründen Sie",
       context:
         "Für den neuen 24/7-Service sollen Telearbeitsplätze eingerichtet werden.",
@@ -185,7 +185,7 @@ const EXAM = {
     {
       id: "A2b",
       block: "2",
-      type: "text",
+      type: "two-of-many",
       operator: "Erläutern Sie",
       context:
         "Es wird vorgeschlagen, einfache Tablets für das Homeoffice zu nutzen.",
@@ -207,7 +207,7 @@ const EXAM = {
     {
       id: "A2c",
       block: "2",
-      type: "text",
+      type: "two-of-many",
       operator: "Beschreiben Sie",
       context:
         "Als Kompromiss werden Notebooks im Homeoffice eingesetzt.",
@@ -243,8 +243,7 @@ const EXAM = {
         "flexibilität",
         "soziale kontakte",
         "abgrenzung",
-        "isolierung",
-        "selbstausbeutung"
+        "isolierung"
       ],
       solution:
         "Vorteile sind zum Beispiel bessere Vereinbarkeit von Beruf und Privatleben sowie der Wegfall von Pendelzeiten. Nachteile können fehlende soziale Kontakte im Team und eine schwierige Abgrenzung von Arbeit und Freizeit sein."
@@ -257,18 +256,19 @@ const EXAM = {
       type: "rechnung",
       operator: "Berechnen Sie",
       context:
-        "Für den nächtlichen Hotline-Service fallen Bereitschafts- und Gesprächskosten im First-, Second- und Third-Level-Support an.",
+        "Die Hotline soll zusätzlich von 20:00 Uhr bis 06:00 Uhr (10 Stunden Nachtschicht) angeboten werden. Für First-, Second- und Third-Level-Support ist in dieser Zeit jeweils ein Mitarbeiter in Bereitschaft.",
       question:
-        "einen einheitlichen Minutenpreis, mit dem die Kosten genau gedeckt werden. Der Rechenweg muss nachvollziehbar sein.",
+        "zu welchem einheitlichen Minutensatz der Service kalkuliert werden muss, um die Kosten der Tabellenangaben exakt zu decken. Der Rechenweg muss nachvollziehbar sein.",
       points: 5,
+      expectedResult: "2,40",
       keywords: [
-        "kosten",
-        "bereitschaft",
-        "minutenpreis",
-        "durchschnitt",
-        "kalkulation",
-        "stundenlohn",
-        "anrufzeit"
+        "gesamtkosten bereitschaft",
+        "gesamtkosten",
+        "gesamtkosten anrufzeit",
+        "gesamtminuten",
+        "kosten gesamt",
+        "minutensatz",
+        "geteilt durch"
       ],
       svg: `
     <svg width="460" height="150" xmlns="http://www.w3.org/2000/svg">
@@ -303,14 +303,18 @@ const EXAM = {
     </svg>
   `,
       solution:
-        "Die Bereitschaftskosten je Level werden aus Stundensatz und Dauer der Nachtschicht ermittelt und mit den Gesprächskosten (Minutenpreis × Anrufminuten) addiert. Anschließend wird die Gesamtsumme durch die Gesamtanzahl der Gesprächsminuten dividiert und auf zwei Nachkommastellen gerundet."
+        "Gesamtkosten Bereitschaft: (12,00 + 15,00 + 20,00) x 10 = 470,00 EUR. " +
+        "Gesamtminuten: 150 + 100 + 50 = 300 Minuten. " +
+        "Kosten beanspruchte Anrufzeit: (0,50 x 150) + (1,00 x 100) + (1,50 x 50) = 250,00 EUR. " +
+        "Kosten gesamt: 470,00 + 250,00 = 720,00 EUR. " +
+        "Minutensatz: 720,00 / 300 = 2,40 EUR."
     },
 
 
     {
       id: "A2f",
       block: "2",
-      type: "text",
+      type: "two-of-many",
       operator: "Formulieren Sie",
       context:
         "Die Kostenpflichtigkeit der Hotline muss den Kunden kommuniziert werden.",
