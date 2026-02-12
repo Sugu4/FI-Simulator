@@ -377,8 +377,7 @@ const EXAM = {
         "abschließbarer raum",
         "vpn",
         "https",
-        "datenträger",
-        "sicher transportieren"
+        "datenträger"
       ],
       solution:
         "Beispiele sind starke Passwörter und Verschlüsselung für den Zugriffsschutz, ein abschließbarer Raum für den Zutrittsschutz, ein VPN-Tunnel zur sicheren Datenkommunikation und die gesicherte Aufbewahrung bzw. der verschlossene Transport von Datenträgern."
@@ -387,7 +386,7 @@ const EXAM = {
     {
       id: "A3c",
       block: "3",
-      type: "text",
+      type: "two-of-many",
       operator: "Nennen Sie",
       context:
         "Eine SSD im Laptop soll mithilfe eines TPM und einer Verschlüsselungssoftware abgesichert werden.",
@@ -422,7 +421,6 @@ const EXAM = {
         "vertraulichkeit",
         "nur berechtigte",
         "zugriff",
-        "kein zugriff ohne schlüssel",
         "integrität",
         "unverändert",
         "manipulation erkennen"
@@ -468,9 +466,7 @@ const EXAM = {
         "verschlüsselung",
         "getunnelte verbindung",
         "öffentliche netze",
-        "zertifikat",
         "identität",
-        "authentifizierung",
         "vertrauenswürdige stelle"
       ],
       solution:
@@ -498,6 +494,7 @@ const EXAM = {
         "dauer",
         "netzplan",
         "vorgangsknoten",
+        "pufferzeiten",
         "abhängigkeiten",
         "kritischer pfad"
       ],
@@ -582,54 +579,62 @@ const EXAM = {
       id: "A4b",
       block: "4",
       type: "diagramm",
-      operator: "Erstellen Sie",
+      operator: "Bestimmen Sie",
       context:
-        "Für ein Projekt mit Vorgängen A bis G liegen Dauerangaben und Abhängigkeiten vor.",
+        "Das folgende Gantt-Diagramm zeigt die Vorgänge A bis D mit ihren Startzeiten und Dauern auf einer Zeitachse (0 bis 4 Tage).",
       question:
-        "ein Gantt-Diagramm und bestimmen Sie die frühestmögliche Projektdauer sowie einen Vorgang mit größtem Puffer.",
+        "anhand des dargestellten Gantt-Diagramms die frühestmögliche Projektdauer und einen Vorgang mit der größten Pufferzeit. Beschreiben Sie kurz, wie Sie diese Werte aus dem Diagramm ablesen.",
       points: 8,
       keywords: [
         "gantt",
         "zeitachse",
         "parallel",
-        "vorgänge",
+        "vorgang",
         "puffer",
         "kritischer pfad",
         "projektdauer"
       ],
       svg: `
-        <svg width="460" height="170" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="10" width="440" height="150" fill="#020617" stroke="#9ca3af"/>
-          <text x="230" y="30" fill="#e5e7eb" text-anchor="middle" font-size="13">
-            Gantt-Schema (Platzhalter)
-          </text>
+      <svg width="460" height="170" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="440" height="150" fill="#020617" stroke="#9ca3af"/>
+        <text x="230" y="30" fill="#e5e7eb" text-anchor="middle" font-size="13">
+          Gantt-Diagramm (Schema)
+        </text>
 
-          <text x="40" y="60" fill="#e5e7eb" font-size="11">A</text>
-          <rect x="70" y="50" width="60" height="12" fill="#22c55e"/>
+        <!-- Zeitachse -->
+        <text x="80"  y="50" fill="#e5e7eb" font-size="10">0</text>
+        <text x="140" y="50" fill="#e5e7eb" font-size="10">1</text>
+        <text x="200" y="50" fill="#e5e7eb" font-size="10">2</text>
+        <text x="260" y="50" fill="#e5e7eb" font-size="10">3</text>
+        <text x="320" y="50" fill="#e5e7eb" font-size="10">4</text>
 
-          <text x="40" y="80" fill="#e5e7eb" font-size="11">B</text>
-          <rect x="140" y="70" width="80" height="12" fill="#22c55e"/>
+        <!-- A-D als vier Zeilen -->
+        <text x="40" y="75"  fill="#e5e7eb" font-size="11">A</text>
+        <rect x="80" y="65" width="60" height="12" fill="#22c55e"/>
 
-          <text x="40" y="100" fill="#e5e7eb" font-size="11">D</text>
-          <rect x="140" y="90" width="100" height="12" fill="#22c55e"/>
+        <text x="40" y="95"  fill="#e5e7eb" font-size="11">B</text>
+        <rect x="140" y="85" width="80" height="12" fill="#22c55e"/>
 
-          <text x="40" y="120" fill="#e5e7eb" font-size="11">E</text>
-          <rect x="140" y="110" width="70" height="12" fill="#22c55e"/>
-        </svg>
+        <text x="40" y="115" fill="#e5e7eb" font-size="11">C</text>
+        <rect x="140" y="105" width="60" height="12" fill="#22c55e"/>
+
+        <text x="40" y="135" fill="#e5e7eb" font-size="11">D</text>
+        <rect x="200" y="125" width="80" height="12" fill="#22c55e"/>
+      </svg>
       `,
       solution:
-        "Im Gantt-Diagramm werden die Vorgänge entsprechend ihren Dauern und Abhängigkeiten eingetragen. Aus der längsten durchgehenden Kette von Vorgängen ergibt sich die Projektdauer und der kritische Pfad; Vorgänge, die zeitlich verschoben werden können, besitzen Pufferzeiten."
+        "Die frühestmögliche Projektdauer lässt sich als Länge des längsten Weges von Projektstart bis Projektende ablesen (kritischer Pfad). Im Schema endet der letzte Vorgang bei Tag 4; die Projektdauer beträgt daher 4 Tage. Ein Vorgang mit der größten Pufferzeit ist derjenige, dessen Balken zeitlich verschoben werden könnte, ohne das Projektende bei Tag 4 zu verändern (z.B. ein nicht kritischer Vorgang, der parallel zu anderen Vorgängen liegt)."
     },
 
     {
       id: "A4ca",
       block: "4",
       type: "uml",
-      operator: "Ergänzen Sie",
+      operator: "Beschreiben Sie",
       context:
-        "Ein Ticketsystem erfasst bisher Kunden und Tickets. In Zukunft sollen zusätzlich Tätigkeiten zu den Tickets gespeichert werden. Das ER-Diagramm zeigt einen Ausschnitt mit Kunde, Ticket und einer Platzhalter-Entität Tätigkeit.",
+        "Ein Ticketsystem erfasst bisher Kunden und Tickets. In Zukunft sollen zusätzlich Tätigkeiten zu den Tickets gespeichert werden. Das ER-Diagramm zeigt die Entitäte Kunde, Ticket und eine noch nicht ausgefüllte Entität Tätigkeit.",
       question:
-        "gedanklich die Entität Tätigkeit um sinnvolle Attribute sowie eine passende Beziehung zum Ticket (Kardinalität). Beschreiben Sie Ihre Ergänzungen.",
+        "welche Attribute die Entität Tätigkeit sinnvollerweise enthalten sollte und in welcher Kardinalität sie mit Ticket in Beziehung steht. Beschreiben Sie Ihre Ergänzungen in ganzen Sätzen.",
       points: 5,
       keywords: [
         "tätigkeit",
@@ -637,8 +642,8 @@ const EXAM = {
         "ergebnis",
         "start",
         "ende",
-        "ticketid",
-        "1:n-beziehung"
+        "ticket",
+        "1:n"
       ],
       svg: `
         <svg width="520" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -671,7 +676,7 @@ const EXAM = {
         </svg>
       `,
       solution:
-        "Entität Tätigkeit mit TätigkeitsID (Primärschlüssel), TicketID (Fremdschlüssel), Beschreibung, Ergebnis, Startzeit, Endzeit. Beziehung: Ein Ticket hat viele Tätigkeiten (1:n)."
+        "Die Entität Tätigkeit erhält folgende Attribute: TätigkeitsID (Primärschlüssel), TicketID (Fremdschlüssel auf Ticket), Beschreibung der Tätigkeit, Ergebnis, Startzeit und Endzeit. Zwischen Ticket und Tätigkeit besteht eine 1:n-Beziehung: Ein Ticket kann viele Tätigkeiten haben, jede Tätigkeit gehört genau zu einem Ticket."
     },
 
     {
