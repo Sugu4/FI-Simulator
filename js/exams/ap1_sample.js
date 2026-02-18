@@ -689,7 +689,13 @@ const EXAM = {
       question:
         "eine SQL-Abfrage, die für jede Priorität die Anzahl der Tickets ausgibt.",
       points: 2,
-      keywords: ["select", "count", "group by", "priorität", "ticket"],
+      keywords: [
+        "select",
+        "count",
+        "group by",
+        "priorität",
+        "ticket"
+      ],
       solution:
         "Eine mögliche Abfrage lautet: SELECT Prioritaet, COUNT(*) AS Anzahl FROM Ticket GROUP BY Prioritaet;"
     },
@@ -704,7 +710,14 @@ const EXAM = {
       question:
         "eine SQL-Abfrage, die die Anzahl unterschiedlicher Kunden mit mindestens einem Ticket ermittelt.",
       points: 3,
-      keywords: ["select", "count", "distinct", "kunde", "kundenid", "ticket"],
+      keywords: [
+        "select", 
+        "count", 
+        "distinct", 
+        "kunde", 
+        "kundenid", 
+        "ticket"
+      ],
       solution:
         "Eine mögliche Abfrage lautet: SELECT COUNT(DISTINCT KundenID) AS AnzahlKundenMitTickets FROM Ticket;"
     },
